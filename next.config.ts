@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  //cacheComponents: true,
-  output: "export",
+  cacheComponents: true,
+  partialPrefetching: true,
 };
 
 export default nextConfig;
