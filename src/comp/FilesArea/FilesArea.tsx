@@ -58,7 +58,7 @@ export default function FilesArea({
   const isFolder = Datas.Contents.icon === 'folder'
 
   const FolderFileClick = (id: string, slug = '') => {
-    if ('content' in Contents[0]) {
+    if ('slug' in Contents[0]) {
       const gameID = Contents[0].parent.parent.gameID
       window.open(
         `/${gameID}/${slug}`,

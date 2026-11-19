@@ -23,7 +23,7 @@ export default function FileComp({
     <div
       className={styles.file}
       onClick={() => {
-        if ('content' in data) {
+        if ('slug' in data) {
           FolderFileClick(data.id, data.slug)
         } else {
           FolderFileClick(data.id)
@@ -31,7 +31,7 @@ export default function FileComp({
       }}
     >
       <div className={styles.Icon}>
-        {'content' in data ? (
+        {'slug' in data ? (
           <Image
             src={data.thumbnail.url}
             alt=""
