@@ -1,0 +1,14 @@
+.footers {
+  height: 28px;
+  background-color:#c2c7ce;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+
+.footers nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}

@@ -2,7 +2,7 @@
   display: flex;
   flex: 1;
   background-color: #F3F6FA;
-  height: calc(100vh - 48px);
+  height: calc(100vh - 48px - 28px);
 }
 
 .FolderArea {
@@ -24,6 +24,6 @@
 
 @media (max-Width: 600px) {
   .mainArea {
-    height: calc(100vh - 38px);
+    height: calc(100vh - 38px - 28px);
   }
 }

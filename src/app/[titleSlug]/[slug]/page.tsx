@@ -2,7 +2,7 @@ import { getAllPages } from '@/lib/microcms';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
 
-import AdBanner from '@/comp/AdBanner/AdBanner'
+//import AdBanner from '@/comp/AdBanner/AdBanner'
 
 export async function generateStaticParams() {
   const pages = await getAllPages();
@@ -85,7 +85,7 @@ export default async function GameTitlePage({
           </div>
         </div>
 
-        <AdBanner />
+        {/* <AdBanner /> */}
 
       </div>
     </main>
