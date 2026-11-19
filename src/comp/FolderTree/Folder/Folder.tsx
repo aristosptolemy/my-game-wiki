@@ -15,7 +15,7 @@ interface TreeNode {
   id: string
   ContentName: string
   type: 'game' | 'category' | 'page'
-  url: string
+  url?: string
   children: TreeNode[]
 }
 

@@ -10,13 +10,14 @@ import FolderArea from './Folder/Folder'
 
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-
 import CircularProgress from '@mui/material/CircularProgress';
-
-import SearchIcon from "@mui/icons-material/Search";
 import Tooltip from '@mui/material/Tooltip';
 
 import CostomInput from '@/comp/CostomInput/CostomInput'
+
+import type {
+  WikiTitle, WikiCategories, WikiPage
+} from '@/types/wiki'
 
 
 const KEY = "favorites";
@@ -40,6 +41,16 @@ const getServerSnapshot = () => {
 };
 
 
+interface FolderTree {
+  Search: string;
+  setSearch: (word: string) => void;
+  Games: WikiTitle[];
+  Categories: WikiCategories[];
+  Pages: WikiPage[];
+  setSelectID: (id: string) => void;
+  selectID: string;
+}
+
 
 export default function GameFolderTree({
   Search,
@@ -49,7 +60,7 @@ export default function GameFolderTree({
   Pages,
   setSelectID,
   selectID
-}) {
+}: FolderTree) {
   const favoritesJSON = useSyncExternalStore(
     subscribe,
     getSnapshot,
@@ -119,6 +130,7 @@ export default function GameFolderTree({
       Other: GameLists.filter((row) => !favorites.includes(row.id)),
     };
   }, [favorites, GameLists]);
+
 
 
   return (

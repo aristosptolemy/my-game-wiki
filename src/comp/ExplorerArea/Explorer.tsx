@@ -4,12 +4,22 @@ import GameFolderTree from "@/comp/FolderTree/FolderTree";
 import styles from './Explorer.module.css'
 import FilesArea from '@/comp/FilesArea/FilesArea'
 
+import type {
+  WikiTitle, WikiCategories, WikiPage
+} from '@/types/wiki'
+
+interface Explorer {
+  Games: WikiTitle[];
+  Categories: WikiCategories[];
+  Pages: WikiPage[];
+}
+
 
 export default function ExplorerArea({
   Games,
   Pages,
   Categories
-}) {
+}: Explorer) {
   const [Search, setSearch] = useState<string>('')
   const [selectID, setSelectID] = useState<string>('')
 
@@ -48,13 +58,13 @@ export default function ExplorerArea({
 
     if (category) {
       const parentGame = Games.find(
-        (row) => row.id === category.parent?.id
+        (row) => row.id === category.parent.id
       )
 
       return {
         Contents: {
           data: Pages.filter(
-            (row) => row.parent?.id === category.id
+            (row) => row.parent.id === category.id
           ),
           icon: 'file'
         },

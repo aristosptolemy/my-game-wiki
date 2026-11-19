@@ -4,20 +4,34 @@ import Image from 'next/image'
 import FolderIcon from '@mui/icons-material/Folder'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 
+import type {
+  WikiTitle, WikiCategories, WikiPage
+} from '@/types/wiki'
+
+interface File {
+  FolderFileClick: (id: string, slug?: string) => void;
+  data: WikiTitle | WikiCategories | WikiPage;
+  isFolder: boolean;
+}
 
 export default function FileComp({
   FolderFileClick,
   data,
   isFolder
-}) {
-  
+}: File) {
   return (
     <div
       className={styles.file}
-      onClick={() => FolderFileClick(data.id, data.slug)}
+      onClick={() => {
+        if ('content' in data) {
+          FolderFileClick(data.id, data.slug)
+        } else {
+          FolderFileClick(data.id)
+        }
+      }}
     >
       <div className={styles.Icon}>
-        {data.thumbnail?.url ? (
+        {'content' in data ? (
           <Image
             src={data.thumbnail.url}
             alt=""

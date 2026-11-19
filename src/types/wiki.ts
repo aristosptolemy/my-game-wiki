@@ -20,13 +20,12 @@ export interface WikiTitle {
 }
 
 
-
 export interface WikiCategories {
   id: string;
   parent: WikiTitle;
   index: string;
   CategoryID: string;
-  ContentsName: string;
+  ContentName: string;
 }
 
 export interface WikiPage {
@@ -37,8 +36,8 @@ export interface WikiPage {
   slug: string;
   content: string;
   uniqueKey: string;
-  thumbnail?: MicroCMSImage;
-  index?: string;
+  thumbnail: MicroCMSImage;
+  index: string;
   updatedAt: string
 }
 
@@ -55,7 +54,7 @@ export interface WikiItem {
   id: string;
   title: string;
   codeName?: string;
-  gameSlug: string; // ★追加: 'monhun', 'armored-core' などの識別スラッグ
+  gameSlug: string;
   category: CategoryType;
   subcategory?: string;
   tier?: 'S' | 'A' | 'B' | 'C';

@@ -2,40 +2,53 @@
 
 import styles from './FilesArea.module.css'
 import { useMemo, useState } from 'react';
-import Image from 'next/image'
-import FolderIcon from '@mui/icons-material/Folder'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-
-import SearchIcon from "@mui/icons-material/Search";
-
 import FileComp from './File/File'
 import CostomInput from '@/comp/CostomInput/CostomInput'
+import type {
+  WikiTitle, WikiCategories, WikiPage
+} from '@/types/wiki'
+
+interface Files {
+  setSelectID: (id: string) => void;
+  Datas: {
+    Contents: {
+      data: WikiTitle[] | WikiCategories[] | WikiPage[];
+      icon: string;
+    }
+    FilePath: {
+      id: string;
+      name: string;
+    }[]
+  }
+}
+
 
 export default function FilesArea({
   Datas,
   setSelectID
-}) {
+}: Files) {
   const path = Datas.FilePath
   const Contents = Datas.Contents.data
 
   const [Search, setSearch] = useState<string>('')
   
   const sortedContents = useMemo(() => {
-    // 1. データが空、または存在しない場合は空配列を返す（エラー防止）
     if (!Contents || Contents.length === 0) {
       return [];
     }
 
-    // 2. 元データを壊さないようにコピーを作る
     const copied = [...Contents];
     const searchData = copied.filter((row) => row.ContentName.includes(Search))
 
-    // 3. index プロパティがあるかで分岐（0の場合も考慮して undefined チェックが安全）
-    if (Contents[0].index !== undefined && Contents[0].index !== null) {
-      return searchData.sort((a, b) => Number(a.index) - Number(b.index));
+    if ("index" in searchData[0]) {
+      return searchData.sort((a, b) => {
+        const indexA = "index" in a ? Number(a.index) : 0;
+        const indexB = "index" in b ? Number(b.index) : 0;
+
+        return indexA - indexB;
+      });
     } else {
-      // 文字列（ファイル名など）の昇順ソートは localeCompare を使う
       return searchData.sort((a, b) => 
         String(a.ContentName).localeCompare(String(b.ContentName), 'ja')
       );
@@ -44,18 +57,16 @@ export default function FilesArea({
 
   const isFolder = Datas.Contents.icon === 'folder'
 
-  const FolderFileClick = (id, slug = '') => {
-
-    if (isFolder) {
-      setSelectID(id)
-    } else {
+  const FolderFileClick = (id: string, slug = '') => {
+    if ('content' in Contents[0]) {
       const gameID = Contents[0].parent.parent.gameID
-
       window.open(
         `/${gameID}/${slug}`,
         '_blank',
         'noopener,noreferrer'
       )
+    } else {
+      setSelectID(id)
     }
   }
 
@@ -109,7 +120,6 @@ export default function FilesArea({
                 isFolder={isFolder}
                 data={row}
               />
-
             </div>
           ))}
         </div>
