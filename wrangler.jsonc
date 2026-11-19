@@ -16,7 +16,7 @@
 			// Self-reference service binding, the service name must match the worker name
 			// see https://opennext.js.org/cloudflare/caching
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "my-game-wiki"
+			"service": "ex-game-wiki"
 		}
 	],
 	"images": {
