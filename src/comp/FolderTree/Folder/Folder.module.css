@@ -1,0 +1,100 @@
+.folderMain {
+  margin-top: 1px;
+}
+
+
+.main {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  gap: 4px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.main:hover {
+  background-color: rgba(100, 116, 139, 0.1);
+}
+
+.selected {
+  background-color: rgba(100, 116, 139, 0.2);
+}
+
+.selected:hover {
+  background-color: rgba(100, 116, 139, 0.28);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.arrow svg {
+  font-size: 18px;
+}
+
+.arrow:disabled {
+  cursor: default;
+}
+
+.Row {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+
+  height: 100%;
+  padding: 0 4px;
+
+  border: none;
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon svg {
+  font-size: 20px;
+}
+
+.name {
+  flex: 1;
+  padding: 0 4px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.favorite {
+  cursor: pointer;
+  font-size: 18px;
+  position: relative;
+  bottom: 2px;
+  margin-right: 4px;
+}

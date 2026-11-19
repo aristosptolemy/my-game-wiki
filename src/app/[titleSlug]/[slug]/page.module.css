@@ -1,0 +1,208 @@
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1;
+}
+
+
+
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.GameTitle {
+  top: 60px;
+  left: 16px;
+}
+
+.officialUrl {
+  top: clamp(94px, 1000px, 23vw);
+  right: 16px;
+}
+
+.officialUrl, .GameTitle {
+  display: flex;
+  position: absolute;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(12px, 20px, 2.4vw);
+  font-weight: bold;
+}
+
+.Title, .URLlink {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.Title::before, .URLlink::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* 親要素と同じサイズにする */
+  border: 3px solid rgb(198, 198, 198); /* ぼかしたい枠線 */
+  filter: blur(4px); /* ここで枠線だけをぼかす */
+  pointer-events: none; /* クリックの邪魔をしないようにする */
+  border-radius: 10px;
+}
+
+
+.imgArea {
+  display: flex;
+}
+
+.img {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 38 / 9;
+  object-fit: cover;
+}
+
+
+.updateArea {
+  display: flex;
+  justify-content: end;
+  padding-top: 0.75rem;
+  padding-right: 1rem;
+  gap: 8px;
+}
+
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+
+
+
+/* microCMSのリッチテキスト用スタイル設定 */
+.richText {
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.richText h1 {
+  font-size: clamp(1.625rem, 1.25rem + 0.75vw, 2rem);
+  font-weight: 700;
+  padding: 8px 12px;
+  margin: 16px 0 20px;
+  text-align: center;
+  border-bottom: 4px solid #4a78b5;
+  background-color: #f0f6ff;
+}
+
+.richText h2 {
+  font-size: clamp(1.375rem, 1.125rem + 0.5vw, 1.625rem);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color, #333);
+
+  padding: 0.5rem 0.75rem;
+  margin: 2rem 0 1.25rem;
+  border-left: 4px solid #4a78b5;
+  background-color: #f5f7fa;
+}
+
+.richText h3 {
+  font-size: 1.375rem;
+  margin: 1.2rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.richText h4 {
+  font-size: 1.175rem;
+  margin: 1.5rem 0.75rem 0.25rem 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.richText h5 {
+  font-size: 1rem;
+}
+
+.richText p {
+  margin: 0.25rem 2rem;
+}
+
+.richText ul,
+.richText ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.richText img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  padding: 1rem;
+}
+
+.richText pre {
+  background-color: #121212;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.richText figure {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+/* テーブル全体 */
+.richText table {
+  border-collapse: collapse;
+  text-align: left;
+  margin: 0.25rem 1.5rem;
+}
+
+/* セル共通 */
+.richText th,
+.richText td {
+  border: 1px solid #ddd;
+  vertical-align: middle;
+  padding: 0.25rem 0.75rem;
+}
+
+.richText th p,
+.richText td p {
+  margin: 0;
+}
+
+/* ヘッダー */
+.richText th {
+  background-color: #f0f2f5;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 偶数行の背景 */
+.richText tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* ホバー */
+.richText tbody tr:hover {
+  background-color: #eef4ff;
+}
+
+
+
+

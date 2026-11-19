@@ -1,0 +1,29 @@
+.mainArea {
+  display: flex;
+  flex: 1;
+  background-color: #F3F6FA;
+  height: calc(100vh - 48px);
+}
+
+.FolderArea {
+  display: flex;
+  max-width: 260px;
+}
+
+.FilesArea {
+  display: flex;
+  flex: 1;
+}
+
+
+@media (max-Width: 768px) {
+  .FolderArea {
+    display: none;
+  }
+}
+
+@media (max-Width: 600px) {
+  .mainArea {
+    height: calc(100vh - 38px);
+  }
+}

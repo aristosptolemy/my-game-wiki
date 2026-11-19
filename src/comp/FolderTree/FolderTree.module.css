@@ -1,0 +1,72 @@
+.FolderMain {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border-right: 1px solid	#CBD5E1;
+  font-size: 16px;
+  background-color:#E2E8F0;
+  width: 260px;
+}
+
+.SearchTop {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  min-width: 0;
+}
+
+.TreeArea {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  padding: 8px 0px;
+  overflow-y: auto;
+  flex: 1;
+  gap: 10px;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  background-color:#E2E8F0;
+  cursor: pointer;
+  height: 26px;
+  border-bottom: 1px solid rgb(168, 168, 168);
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  gap: 1px;
+}
+
+
+.folders {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.faGames {
+  height: 0;
+  transition: height 0.4s ease;
+  interpolate-size: allow-keywords;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.faGames.open {
+  height: auto;
+}
+
+.faGames.close {
+  height: 0px;
+}
+
+
+.faGames::-webkit-scrollbar {
+  display: none;
+}
+
