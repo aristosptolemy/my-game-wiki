@@ -34,7 +34,7 @@ export interface WikiPage {
   category: string;
   ContentName: string;
   slug: string;
-  content: string;
+  content?: string;
   uniqueKey: string;
   thumbnail: MicroCMSImage;
   index: string;
