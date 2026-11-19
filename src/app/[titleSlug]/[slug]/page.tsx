@@ -1,11 +1,11 @@
-import { getPages } from '@/lib/microcms';
+import { getAllPages } from '@/lib/microcms';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
 
 import AdBanner from '@/comp/AdBanner/AdBanner'
 
 export async function generateStaticParams() {
-  const pages = await getPages();
+  const pages = await getAllPages();
   const result = pages.map((page) => ({
     titleSlug: page.parent.parent.gameID,
     slug: page.slug,
@@ -22,7 +22,7 @@ export default async function GameTitlePage({
   }>;
 }) {
   const { titleSlug, slug } = await params;
-  const pages = await getPages()
+  const pages = await getAllPages()
   const page = pages.find((row) => row.uniqueKey == `${titleSlug}_${slug}`)
   
   if (!page) {
