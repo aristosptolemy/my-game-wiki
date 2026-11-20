@@ -45,9 +45,7 @@ export const getAllPages = cache(async (): Promise<WikiPage[]> => {
       depth: 2,
     },
     customRequestInit: {
-      cache: process.env.NODE_ENV === 'development'
-        ? 'no-store'
-        : 'force-cache',
+      cache: 'no-store'
     },
   });
 
