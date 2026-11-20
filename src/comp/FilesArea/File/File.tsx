@@ -31,7 +31,7 @@ export default function FileComp({
       }}
     >
       <div className={styles.Icon}>
-        {'slug' in data ? (
+        {'slug' in data && data.thumbnail?.url ? (
           <Image
             src={data.thumbnail.url}
             alt=""
